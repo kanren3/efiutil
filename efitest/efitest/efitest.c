@@ -20,7 +20,7 @@ UefiMain(
      *  Print a message to the console device using a library function.
      */
 
-    Print(L"HelloLib runtime driver started\n");
+    Print(L"HelloLib application started\n");
 
     /*
      *  Wait for a key to be pressed on the console device.

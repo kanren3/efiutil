@@ -34,7 +34,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir>..\..\lib\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
     <IncludePath>..\..\inc;..\..\inc\protocol;..\..\inc\amd64;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
