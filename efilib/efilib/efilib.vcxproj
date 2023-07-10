@@ -33,9 +33,9 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>..\..\lib\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
-    <IncludePath>..\..\inc;..\..\inc\protocol;..\..\inc\x64;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\inc;..\..\inc\protocol;..\..\inc\amd64;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -53,6 +53,8 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="amd64\initplat.c" />
+    <ClCompile Include="amd64\math.c" />
     <ClCompile Include="boxdraw.c" />
     <ClCompile Include="console.c" />
     <ClCompile Include="crc.c" />
@@ -75,8 +77,6 @@
     <ClCompile Include="runtime\vm.c" />
     <ClCompile Include="sread.c" />
     <ClCompile Include="str.c" />
-    <ClCompile Include="x64\initplat.c" />
-    <ClCompile Include="x64\math.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

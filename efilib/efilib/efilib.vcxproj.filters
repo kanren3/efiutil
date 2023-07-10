@@ -6,7 +6,7 @@
     <Filter Include="Source Files\runtime">
       <UniqueIdentifier>{c2448b16-6247-4806-841b-9338d16a1a44}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\x64">
+    <Filter Include="Source Files\amd64">
       <UniqueIdentifier>{7320800e-9aba-4b17-b97a-5cf2c9605423}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -77,11 +77,11 @@
     <ClCompile Include="runtime\vm.c">
       <Filter>Source Files\runtime</Filter>
     </ClCompile>
-    <ClCompile Include="x64\math.c">
-      <Filter>Source Files\x64</Filter>
+    <ClCompile Include="amd64\initplat.c">
+      <Filter>Source Files\amd64</Filter>
     </ClCompile>
-    <ClCompile Include="x64\initplat.c">
-      <Filter>Source Files\x64</Filter>
+    <ClCompile Include="amd64\math.c">
+      <Filter>Source Files\amd64</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

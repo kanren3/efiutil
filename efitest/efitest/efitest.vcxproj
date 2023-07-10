@@ -35,7 +35,7 @@
   <PropertyGroup>
     <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
-    <IncludePath>..\..\inc;..\..\inc\protocol;..\..\inc\x64;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\inc;..\..\inc\protocol;..\..\inc\amd64;$(IncludePath)</IncludePath>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
