@@ -1,9 +1,0 @@
-# Core EditorConfig Options
-
-root = true
-
-[*.{c,h,cpp,hpp,asm}]
-charset = utf-8
-indent_style = space
-indent_size = 4
-trim_trailing_whitespace = true

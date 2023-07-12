@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example", "example\example.vcxproj", "{CFB530FD-A1CD-4AEA-BCF9-066F3BE3DA30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -20,6 +22,10 @@ Global
 		{05C22101-DED0-48A4-8B58-C15966F785F5}.Debug|x64.Build.0 = Debug|x64
 		{05C22101-DED0-48A4-8B58-C15966F785F5}.Release|x64.ActiveCfg = Release|x64
 		{05C22101-DED0-48A4-8B58-C15966F785F5}.Release|x64.Build.0 = Release|x64
+		{CFB530FD-A1CD-4AEA-BCF9-066F3BE3DA30}.Debug|x64.ActiveCfg = Debug|x64
+		{CFB530FD-A1CD-4AEA-BCF9-066F3BE3DA30}.Debug|x64.Build.0 = Debug|x64
+		{CFB530FD-A1CD-4AEA-BCF9-066F3BE3DA30}.Release|x64.ActiveCfg = Release|x64
+		{CFB530FD-A1CD-4AEA-BCF9-066F3BE3DA30}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
