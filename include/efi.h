@@ -44,5 +44,6 @@ Revision History
 #include "efiapi.h"
 #include "efifs.h"
 #include "efierr.h"
+#include "efimp.h"
 
 #endif

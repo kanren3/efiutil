@@ -83,5 +83,8 @@
     <ClCompile Include="amd64\math.c">
       <Filter>Source Files\amd64</Filter>
     </ClCompile>
+    <ClCompile Include="mp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

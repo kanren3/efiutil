@@ -56,6 +56,7 @@ extern EFI_GUID PxeBaseCodeProtocol;
 extern EFI_GUID PxeCallbackProtocol;
 extern EFI_GUID NetworkInterfaceIdentifierProtocol;
 extern EFI_GUID InternalLoadProtocol;
+extern EFI_GUID MultiProcessorProtocol;
 
 extern EFI_GUID EfiGlobalVariable;
 extern EFI_GUID GenericFileInfo;
@@ -834,5 +835,25 @@ extern EFI_DEVICE_IO_INTERFACE  *GlobalIoFncs;
 
 #define Pause()             WaitForSingleEvent (ST->ConIn->WaitForKey, 0)
 #define Port80(_PostCode)   GlobalIoFncs->Io.Write (GlobalIoFncs, IO_UINT16, (UINT64)0x80, 1, &(_PostCode))
+
+/*
+*   MP Services
+*/
+
+VOID
+RunProcedureOnAllProcessors (
+    IN EFI_GENERAL_PROCEDURE Procedure,
+    IN VOID *Context
+);
+
+UINTN EFIAPI
+GetActiveProcessNumber (
+    VOID
+);
+
+UINTN EFIAPI
+GetCurrentProcessorNumber (
+    VOID
+);
 
 #endif

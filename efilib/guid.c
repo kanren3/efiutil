@@ -71,6 +71,7 @@ struct {
     &VgaClassProtocol,          L"vgaclass",
     &SimpleNetworkProtocol,     L"net",
     &NetworkInterfaceIdentifierProtocol,    L"nii",
+    &MultiProcessorProtocol,    L"mp",
     &PxeBaseCodeProtocol,       L"pxebc",
     &PxeCallbackProtocol,       L"pxecb",
 

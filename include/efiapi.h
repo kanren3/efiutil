@@ -20,20 +20,20 @@ Revision History
 
 --*/
 
-/* 
+/*
  *  EFI Specification Revision
  */
 
 #define EFI_SPECIFICATION_MAJOR_REVISION 0
 #define EFI_SPECIFICATION_MINOR_REVISION 99
 
-/* 
- *  Declare forward referenced data structures
- */
+ /*
+  *  Declare forward referenced data structures
+  */
 
-INTERFACE_DECL(_EFI_SYSTEM_TABLE);
+INTERFACE_DECL (_EFI_SYSTEM_TABLE);
 
-/* 
+/*
  *  EFI Memory
  */
 
@@ -43,7 +43,7 @@ EFI_STATUS
     IN EFI_ALLOCATE_TYPE            Type,
     IN EFI_MEMORY_TYPE              MemoryType,
     IN UINTN                        NoPages,
-    OUT EFI_PHYSICAL_ADDRESS        *Memory
+    OUT EFI_PHYSICAL_ADDRESS *Memory
     );
 
 typedef
@@ -56,11 +56,11 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_MEMORY_MAP) (
-    IN OUT UINTN                    *MemoryMapSize,
-    IN OUT EFI_MEMORY_DESCRIPTOR    *MemoryMap,
-    OUT UINTN                       *MapKey,
-    OUT UINTN                       *DescriptorSize,
-    OUT UINT32                      *DescriptorVersion
+    IN OUT UINTN *MemoryMapSize,
+    IN OUT EFI_MEMORY_DESCRIPTOR *MemoryMap,
+    OUT UINTN *MapKey,
+    OUT UINTN *DescriptorSize,
+    OUT UINT32 *DescriptorVersion
     );
 
 #define NextMemoryDescriptor(Ptr,Size)  ((EFI_MEMORY_DESCRIPTOR *) (((UINT8 *) Ptr) + Size))
@@ -71,22 +71,22 @@ EFI_STATUS
 (EFIAPI *EFI_ALLOCATE_POOL) (
     IN EFI_MEMORY_TYPE              PoolType,
     IN UINTN                        Size,
-    OUT VOID                        **Buffer
+    OUT VOID **Buffer
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_FREE_POOL) (
-    IN VOID                         *Buffer
+    IN VOID *Buffer
     );
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_VIRTUAL_ADDRESS_MAP) (
     IN UINTN                        MemoryMapSize,
     IN UINTN                        DescriptorSize,
     IN UINT32                       DescriptorVersion,
-    IN EFI_MEMORY_DESCRIPTOR        *VirtualMap
+    IN EFI_MEMORY_DESCRIPTOR *VirtualMap
     );
 
 
@@ -95,15 +95,15 @@ EFI_STATUS
 #define EFI_INTERNAL_PTR            0x00000004      /*  Pointer to internal runtime data */
 
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_CONVERT_POINTER) (
     IN UINTN                        DebugDisposition,
-    IN OUT VOID                     **Address
+    IN OUT VOID **Address
     );
 
 
-/* 
+/*
  *  EFI Events
  */
 
@@ -126,7 +126,7 @@ typedef
 VOID
 (EFIAPI *EFI_EVENT_NOTIFY) (
     IN EFI_EVENT                Event,
-    IN VOID                     *Context
+    IN VOID *Context
     );
 
 typedef
@@ -135,8 +135,8 @@ EFI_STATUS
     IN UINT32                       Type,
     IN EFI_TPL                      NotifyTpl,
     IN EFI_EVENT_NOTIFY             NotifyFunction,
-    IN VOID                         *NotifyContext,
-    OUT EFI_EVENT                   *Event
+    IN VOID *NotifyContext,
+    OUT EFI_EVENT *Event
     );
 
 typedef enum {
@@ -160,12 +160,12 @@ EFI_STATUS
     IN EFI_EVENT                Event
     );
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_WAIT_FOR_EVENT) (
     IN UINTN                    NumberOfEvents,
-    IN EFI_EVENT                *Event,
-    OUT UINTN                   *Index
+    IN EFI_EVENT *Event,
+    OUT UINTN *Index
     );
 
 typedef
@@ -180,7 +180,7 @@ EFI_STATUS
     IN EFI_EVENT                Event
     );
 
-/* 
+/*
  *  Task priority level
  */
 
@@ -202,14 +202,14 @@ VOID
     );
 
 
-/* 
+/*
  *  EFI platform varibles
  */
 
 #define EFI_GLOBAL_VARIABLE     \
     { 0x8BE4DF61, 0x93CA, 0x11d2, 0xAA, 0x0D, 0x00, 0xE0, 0x98, 0x03, 0x2B, 0x8C }
 
-/*  Variable attributes */
+ /*  Variable attributes */
 #define EFI_VARIABLE_NON_VOLATILE           0x00000001
 #define EFI_VARIABLE_BOOTSERVICE_ACCESS     0x00000002
 #define EFI_VARIABLE_RUNTIME_ACCESS         0x00000004
@@ -218,79 +218,79 @@ VOID
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_VARIABLE) (
-    IN CHAR16                       *VariableName,
-    IN EFI_GUID                     *VendorGuid,
-    OUT UINT32                      *Attributes OPTIONAL,
-    IN OUT UINTN                    *DataSize,
-    OUT VOID                        *Data
+    IN CHAR16 *VariableName,
+    IN EFI_GUID *VendorGuid,
+    OUT UINT32 *Attributes OPTIONAL,
+    IN OUT UINTN *DataSize,
+    OUT VOID *Data
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_NEXT_VARIABLE_NAME) (
-    IN OUT UINTN                    *VariableNameSize,
-    IN OUT CHAR16                   *VariableName,
-    IN OUT EFI_GUID                 *VendorGuid
+    IN OUT UINTN *VariableNameSize,
+    IN OUT CHAR16 *VariableName,
+    IN OUT EFI_GUID *VendorGuid
     );
 
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_VARIABLE) (
-    IN CHAR16                       *VariableName,
-    IN EFI_GUID                     *VendorGuid,
+    IN CHAR16 *VariableName,
+    IN EFI_GUID *VendorGuid,
     IN UINT32                       Attributes,
     IN UINTN                        DataSize,
-    IN VOID                         *Data
+    IN VOID *Data
     );
 
 
-/* 
+/*
  *  EFI Time
  */
 
 typedef struct {
-        UINT32                      Resolution;     /*  1e-6 parts per million */
-        UINT32                      Accuracy;       /*  hertz */
-        BOOLEAN                     SetsToZero;     /*  Set clears sub-second time */
+    UINT32                      Resolution;     /*  1e-6 parts per million */
+    UINT32                      Accuracy;       /*  hertz */
+    BOOLEAN                     SetsToZero;     /*  Set clears sub-second time */
 } EFI_TIME_CAPABILITIES;
 
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_TIME) (
-    OUT EFI_TIME                    *Time,
-    OUT EFI_TIME_CAPABILITIES       *Capabilities OPTIONAL
+    OUT EFI_TIME *Time,
+    OUT EFI_TIME_CAPABILITIES *Capabilities OPTIONAL
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_TIME) (
-    IN EFI_TIME                     *Time
+    IN EFI_TIME *Time
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_WAKEUP_TIME) (
-    OUT BOOLEAN                     *Enabled,
-    OUT BOOLEAN                     *Pending,
-    OUT EFI_TIME                    *Time
+    OUT BOOLEAN *Enabled,
+    OUT BOOLEAN *Pending,
+    OUT EFI_TIME *Time
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_WAKEUP_TIME) (
     IN BOOLEAN                      Enable,
-    IN EFI_TIME                     *Time OPTIONAL
+    IN EFI_TIME *Time OPTIONAL
     );
 
 
-/* 
+/*
  *  Image functions
  */
 
 
-/*  PE32+ Subsystem type for EFI images */
+ /*  PE32+ Subsystem type for EFI images */
 
 #if !defined(IMAGE_SUBSYSTEM_EFI_APPLICATION)
 #define IMAGE_SUBSYSTEM_EFI_APPLICATION             10
@@ -310,30 +310,30 @@ EFI_STATUS
 
 /*  Image Entry prototype */
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_IMAGE_ENTRY_POINT) (
     IN EFI_HANDLE                   ImageHandle,
-    IN struct _EFI_SYSTEM_TABLE     *SystemTable
+    IN struct _EFI_SYSTEM_TABLE *SystemTable
     );
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_IMAGE_LOAD) (
     IN BOOLEAN                      BootPolicy,
     IN EFI_HANDLE                   ParentImageHandle,
-    IN EFI_DEVICE_PATH              *FilePath,
-    IN VOID                         *SourceBuffer   OPTIONAL,
+    IN EFI_DEVICE_PATH *FilePath,
+    IN VOID *SourceBuffer   OPTIONAL,
     IN UINTN                        SourceSize,
-    OUT EFI_HANDLE                  *ImageHandle
+    OUT EFI_HANDLE *ImageHandle
     );
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_IMAGE_START) (
     IN EFI_HANDLE                   ImageHandle,
-    OUT UINTN                       *ExitDataSize,
-    OUT CHAR16                      **ExitData  OPTIONAL
+    OUT UINTN *ExitDataSize,
+    OUT CHAR16 **ExitData  OPTIONAL
     );
 
 typedef
@@ -342,10 +342,10 @@ EFI_STATUS
     IN EFI_HANDLE                   ImageHandle,
     IN EFI_STATUS                   ExitStatus,
     IN UINTN                        ExitDataSize,
-    IN CHAR16                       *ExitData OPTIONAL
+    IN CHAR16 *ExitData OPTIONAL
     );
 
-typedef 
+typedef
 EFI_STATUS
 (EFIAPI *EFI_IMAGE_UNLOAD) (
     IN EFI_HANDLE                   ImageHandle
@@ -360,19 +360,19 @@ EFI_STATUS
 typedef struct {
     UINT32                          Revision;
     EFI_HANDLE                      ParentHandle;
-    struct _EFI_SYSTEM_TABLE        *SystemTable;
+    struct _EFI_SYSTEM_TABLE *SystemTable;
 
     /*  Source location of image */
     EFI_HANDLE                      DeviceHandle;
-    EFI_DEVICE_PATH                 *FilePath;
-    VOID                            *Reserved;
+    EFI_DEVICE_PATH *FilePath;
+    VOID *Reserved;
 
     /*  Images load options */
     UINT32                          LoadOptionsSize;
-    VOID                            *LoadOptions;
+    VOID *LoadOptions;
 
     /*  Location of where image was loaded */
-    VOID                            *ImageBase;
+    VOID *ImageBase;
     UINT64                          ImageSize;
     EFI_MEMORY_TYPE                 ImageCodeType;
     EFI_MEMORY_TYPE                 ImageDataType;
@@ -390,7 +390,7 @@ EFI_STATUS
     IN UINTN                        MapKey
     );
 
-/* 
+/*
  *  Misc
  */
 
@@ -407,9 +407,134 @@ EFI_STATUS
     IN UINTN                    Timeout,
     IN UINT64                   WatchdogCode,
     IN UINTN                    DataSize,
-    IN CHAR16                   *WatchdogData OPTIONAL
+    IN CHAR16 *WatchdogData OPTIONAL
     );
 
+typedef
+EFI_STATUS
+(EFIAPI *EFI_CONNECT_CONTROLLER)(
+    IN  EFI_HANDLE              ControllerHandle,
+    IN  EFI_HANDLE *DriverImageHandle    OPTIONAL,
+    IN  EFI_DEVICE_PATH *RemainingDevicePath  OPTIONAL,
+    IN  BOOLEAN                 Recursive
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_DISCONNECT_CONTROLLER)(
+    IN  EFI_HANDLE              ControllerHandle,
+    IN  EFI_HANDLE              DriverImageHandle  OPTIONAL,
+    IN  EFI_HANDLE              ChildHandle        OPTIONAL
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_OPEN_PROTOCOL)(
+    IN  EFI_HANDLE              Handle,
+    IN  EFI_GUID *Protocol,
+    OUT VOID **Interface  OPTIONAL,
+    IN  EFI_HANDLE              AgentHandle,
+    IN  EFI_HANDLE              ControllerHandle,
+    IN  UINT32                  Attributes
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_CLOSE_PROTOCOL)(
+    IN EFI_HANDLE               Handle,
+    IN EFI_GUID *Protocol,
+    IN EFI_HANDLE               AgentHandle,
+    IN EFI_HANDLE               ControllerHandle
+    );
+
+typedef struct {
+    EFI_HANDLE    AgentHandle;
+    EFI_HANDLE    ControllerHandle;
+    UINT32        Attributes;
+    UINT32        OpenCount;
+} EFI_OPEN_PROTOCOL_INFORMATION_ENTRY;
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_OPEN_PROTOCOL_INFORMATION)(
+    IN  EFI_HANDLE                          Handle,
+    IN  EFI_GUID *Protocol,
+    OUT EFI_OPEN_PROTOCOL_INFORMATION_ENTRY **EntryBuffer,
+    OUT UINTN *EntryCount
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_PROTOCOLS_PER_HANDLE)(
+    IN  EFI_HANDLE      Handle,
+    OUT EFI_GUID ***ProtocolBuffer,
+    OUT UINTN *ProtocolBufferCount
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_LOCATE_PROTOCOL)(
+    IN  EFI_GUID *Protocol,
+    IN  VOID *Registration  OPTIONAL,
+    OUT VOID **Interface
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_REGISTER_PROTOCOL_NOTIFY)(
+    IN  EFI_GUID *Protocol,
+    IN  EFI_EVENT       Event,
+    OUT VOID **Registration
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_INSTALL_MULTIPLE_PROTOCOL_INTERFACES)(
+    IN OUT EFI_HANDLE *Handle,
+    ...
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_UNINSTALL_MULTIPLE_PROTOCOL_INTERFACES)(
+    IN EFI_HANDLE   Handle,
+    ...
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_CALCULATE_CRC32)(
+    IN  VOID *Data,
+    IN  UINTN   DataSize,
+    OUT UINT32 *Crc32
+    );
+
+typedef
+VOID
+(EFIAPI *EFI_COPY_MEM)(
+    IN VOID *Destination,
+    IN VOID *Source,
+    IN UINTN    Length
+    );
+
+typedef
+VOID
+(EFIAPI *EFI_SET_MEM)(
+    IN VOID *Buffer,
+    IN UINTN    Size,
+    IN UINT8    Value
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_CREATE_EVENT_EX)(
+    IN       UINT32                 Type,
+    IN       EFI_TPL                NotifyTpl,
+    IN       EFI_EVENT_NOTIFY       NotifyFunction OPTIONAL,
+    IN CONST VOID *NotifyContext OPTIONAL,
+    IN CONST EFI_GUID *EventGroup    OPTIONAL,
+    OUT      EFI_EVENT *Event
+    );
 
 typedef enum {
     EfiResetCold,
@@ -422,22 +547,22 @@ EFI_STATUS
     IN EFI_RESET_TYPE           ResetType,
     IN EFI_STATUS               ResetStatus,
     IN UINTN                    DataSize,
-    IN CHAR16                   *ResetData OPTIONAL
+    IN CHAR16 *ResetData OPTIONAL
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_NEXT_MONOTONIC_COUNT) (
-    OUT UINT64                  *Count
+    OUT UINT64 *Count
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_NEXT_HIGH_MONO_COUNT) (
-    OUT UINT32                  *HighCount
+    OUT UINT32 *HighCount
     );
 
-/* 
+/*
  *  Protocol handler functions
  */
 
@@ -449,43 +574,43 @@ typedef enum {
 typedef
 EFI_STATUS
 (EFIAPI *EFI_INSTALL_PROTOCOL_INTERFACE) (
-    IN OUT EFI_HANDLE           *Handle,
-    IN EFI_GUID                 *Protocol,
+    IN OUT EFI_HANDLE *Handle,
+    IN EFI_GUID *Protocol,
     IN EFI_INTERFACE_TYPE       InterfaceType,
-    IN VOID                     *Interface
+    IN VOID *Interface
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_REINSTALL_PROTOCOL_INTERFACE) (
     IN EFI_HANDLE               Handle,
-    IN EFI_GUID                 *Protocol,
-    IN VOID                     *OldInterface,
-    IN VOID                     *NewInterface
+    IN EFI_GUID *Protocol,
+    IN VOID *OldInterface,
+    IN VOID *NewInterface
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_UNINSTALL_PROTOCOL_INTERFACE) (
     IN EFI_HANDLE               Handle,
-    IN EFI_GUID                 *Protocol,
-    IN VOID                     *Interface
+    IN EFI_GUID *Protocol,
+    IN VOID *Interface
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_HANDLE_PROTOCOL) (
     IN EFI_HANDLE               Handle,
-    IN EFI_GUID                 *Protocol,
-    OUT VOID                    **Interface
+    IN EFI_GUID *Protocol,
+    OUT VOID **Interface
     );
 
 typedef
-EFI_STATUS 
+EFI_STATUS
 (EFIAPI *EFI_REGISTER_PROTOCOL_NOTIFY) (
-    IN EFI_GUID                 *Protocol,
+    IN EFI_GUID *Protocol,
     IN EFI_EVENT                Event,
-    OUT VOID                    **Registration
+    OUT VOID **Registration
     );
 
 typedef enum {
@@ -498,25 +623,35 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_LOCATE_HANDLE) (
     IN EFI_LOCATE_SEARCH_TYPE   SearchType,
-    IN EFI_GUID                 *Protocol OPTIONAL,
-    IN VOID                     *SearchKey OPTIONAL,
-    IN OUT UINTN                *BufferSize,
-    OUT EFI_HANDLE              *Buffer
+    IN EFI_GUID *Protocol OPTIONAL,
+    IN VOID *SearchKey OPTIONAL,
+    IN OUT UINTN *BufferSize,
+    OUT EFI_HANDLE *Buffer
+    );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_LOCATE_HANDLE_BUFFER)(
+    IN EFI_LOCATE_SEARCH_TYPE SearchType,
+    IN EFI_GUID *Protocol OPTIONAL,
+    IN VOID *SearchKey OPTIONAL,
+    OUT UINTN *NoHandles,
+    OUT EFI_HANDLE **Buffer
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_LOCATE_DEVICE_PATH) (
-    IN EFI_GUID                 *Protocol,
-    IN OUT EFI_DEVICE_PATH      **DevicePath,
-    OUT EFI_HANDLE              *Device
+    IN EFI_GUID *Protocol,
+    IN OUT EFI_DEVICE_PATH **DevicePath,
+    OUT EFI_HANDLE *Device
     );
 
 typedef
 EFI_STATUS
 (EFIAPI *EFI_INSTALL_CONFIGURATION_TABLE) (
-    IN EFI_GUID                 *Guid,
-    IN VOID                     *Table
+    IN EFI_GUID *Guid,
+    IN VOID *Table
     );
 
 typedef
@@ -524,7 +659,7 @@ EFI_STATUS
 (EFIAPI *EFI_RESERVED_SERVICE) (
     );
 
-/* 
+/*
  *  Standard EFI table header
  */
 
@@ -537,17 +672,17 @@ typedef struct _EFI_TABLE_HEARDER {
 } EFI_TABLE_HEADER;
 
 
-/* 
+/*
  *  EFI Runtime Serivces Table
  */
 
 #define EFI_RUNTIME_SERVICES_SIGNATURE  0x56524553544e5552
 #define EFI_RUNTIME_SERVICES_REVISION   (EFI_SPECIFICATION_MAJOR_REVISION<<16) | (EFI_SPECIFICATION_MINOR_REVISION)
 
-typedef struct  {
+typedef struct {
     EFI_TABLE_HEADER                Hdr;
 
-    /* 
+    /*
      *  Time services
      */
 
@@ -556,14 +691,14 @@ typedef struct  {
     EFI_GET_WAKEUP_TIME             GetWakeupTime;
     EFI_SET_WAKEUP_TIME             SetWakeupTime;
 
-    /* 
+    /*
      *  Virtual memory services
      */
 
     EFI_SET_VIRTUAL_ADDRESS_MAP     SetVirtualAddressMap;
     EFI_CONVERT_POINTER             ConvertPointer;
 
-    /* 
+    /*
      *  Variable serviers
      */
 
@@ -571,7 +706,7 @@ typedef struct  {
     EFI_GET_NEXT_VARIABLE_NAME      GetNextVariableName;
     EFI_SET_VARIABLE                SetVariable;
 
-    /* 
+    /*
      *  Misc
      */
 
@@ -581,7 +716,7 @@ typedef struct  {
 } EFI_RUNTIME_SERVICES;
 
 
-/* 
+/*
  *  EFI Boot Services Table
  */
 
@@ -592,14 +727,14 @@ typedef struct _EFI_BOOT_SERVICES {
 
     EFI_TABLE_HEADER                Hdr;
 
-    /* 
+    /*
      *  Task priority functions
      */
 
     EFI_RAISE_TPL                   RaiseTPL;
     EFI_RESTORE_TPL                 RestoreTPL;
 
-    /* 
+    /*
      *  Memory functions
      */
 
@@ -609,7 +744,7 @@ typedef struct _EFI_BOOT_SERVICES {
     EFI_ALLOCATE_POOL               AllocatePool;
     EFI_FREE_POOL                   FreePool;
 
-    /* 
+    /*
      *  Event & timer functions
      */
 
@@ -620,7 +755,7 @@ typedef struct _EFI_BOOT_SERVICES {
     EFI_CLOSE_EVENT                 CloseEvent;
     EFI_CHECK_EVENT                 CheckEvent;
 
-    /* 
+    /*
      *  Protocol handler functions
      */
 
@@ -634,7 +769,7 @@ typedef struct _EFI_BOOT_SERVICES {
     EFI_LOCATE_DEVICE_PATH          LocateDevicePath;
     EFI_INSTALL_CONFIGURATION_TABLE InstallConfigurationTable;
 
-    /* 
+    /*
      *  Image functions
      */
 
@@ -644,7 +779,7 @@ typedef struct _EFI_BOOT_SERVICES {
     EFI_IMAGE_UNLOAD                UnloadImage;
     EFI_EXIT_BOOT_SERVICES          ExitBootServices;
 
-    /* 
+    /*
      *  Misc functions
      */
 
@@ -652,10 +787,48 @@ typedef struct _EFI_BOOT_SERVICES {
     EFI_STALL                       Stall;
     EFI_SET_WATCHDOG_TIMER          SetWatchdogTimer;
 
+    /*
+    *   DriverSupport functions
+    */
+
+    EFI_CONNECT_CONTROLLER          ConnectController;
+    EFI_DISCONNECT_CONTROLLER       DisconnectController;
+
+    /*
+    *   Open and Close Protocol functions
+    */
+
+    EFI_OPEN_PROTOCOL               OpenProtocol;
+    EFI_CLOSE_PROTOCOL              CloseProtocol;
+    EFI_OPEN_PROTOCOL_INFORMATION   OpenProtocolInformation;
+
+    /*
+    *   Library functions
+    */
+
+    EFI_PROTOCOLS_PER_HANDLE                        ProtocolsPerHandle;
+    EFI_LOCATE_HANDLE_BUFFER                        LocateHandleBuffer;
+    EFI_LOCATE_PROTOCOL                             LocateProtocol;
+    EFI_INSTALL_MULTIPLE_PROTOCOL_INTERFACES        InstallMultipleProtocolInterfaces;
+    EFI_UNINSTALL_MULTIPLE_PROTOCOL_INTERFACES      UninstallMultipleProtocolInterfaces;
+
+    /*
+    *   32-bit CRC functions
+    */
+
+    EFI_CALCULATE_CRC32             CalculateCrc32;
+
+    /*
+    *   Miscellaneous functions
+    */
+
+    EFI_COPY_MEM                    CopyMem;
+    EFI_SET_MEM                     SetMem;
+    EFI_CREATE_EVENT_EX             CreateEventEx;
 } EFI_BOOT_SERVICES;
 
 
-/* 
+/*
  *  EFI Configuration Table and GUID definitions
  */
 
@@ -677,11 +850,11 @@ typedef struct _EFI_BOOT_SERVICES {
 
 typedef struct _EFI_CONFIGURATION_TABLE {
     EFI_GUID                VendorGuid;
-    VOID                    *VendorTable;
+    VOID *VendorTable;
 } EFI_CONFIGURATION_TABLE;
 
 
-/* 
+/*
  *  EFI System Table
  */
 
@@ -694,23 +867,23 @@ typedef struct _EFI_CONFIGURATION_TABLE {
 typedef struct _EFI_SYSTEM_TABLE {
     EFI_TABLE_HEADER                Hdr;
 
-    CHAR16                          *FirmwareVendor;
+    CHAR16 *FirmwareVendor;
     UINT32                          FirmwareRevision;
 
     EFI_HANDLE                      ConsoleInHandle;
-    SIMPLE_INPUT_INTERFACE          *ConIn;
+    SIMPLE_INPUT_INTERFACE *ConIn;
 
     EFI_HANDLE                      ConsoleOutHandle;
-    SIMPLE_TEXT_OUTPUT_INTERFACE    *ConOut;
+    SIMPLE_TEXT_OUTPUT_INTERFACE *ConOut;
 
     EFI_HANDLE                      StandardErrorHandle;
-    SIMPLE_TEXT_OUTPUT_INTERFACE    *StdErr;
+    SIMPLE_TEXT_OUTPUT_INTERFACE *StdErr;
 
-    EFI_RUNTIME_SERVICES            *RuntimeServices;
-    EFI_BOOT_SERVICES               *BootServices;
+    EFI_RUNTIME_SERVICES *RuntimeServices;
+    EFI_BOOT_SERVICES *BootServices;
 
     UINTN                           NumberOfTableEntries;
-    EFI_CONFIGURATION_TABLE         *ConfigurationTable;
+    EFI_CONFIGURATION_TABLE *ConfigurationTable;
 
 } EFI_SYSTEM_TABLE;
 

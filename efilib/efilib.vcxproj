@@ -68,6 +68,7 @@
     <ClCompile Include="init.c" />
     <ClCompile Include="lock.c" />
     <ClCompile Include="misc.c" />
+    <ClCompile Include="mp.c" />
     <ClCompile Include="print.c" />
     <ClCompile Include="runtime\efirtlib.c" />
     <ClCompile Include="runtime\rtlock.c" />
